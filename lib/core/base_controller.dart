@@ -4,7 +4,13 @@ import 'package:get/get.dart';
 class BaseController extends GetxController {
   var isLoading = false.obs;
   void showLoading() => Get.dialog(
-        CircularProgressIndicator(),
+        Center(
+          child: SizedBox(
+            width: 100.0,
+            height: 100.0,
+            child: CircularProgressIndicator(),
+          ),
+        ),
       );
   void hideLoading() => Get.back();
 
