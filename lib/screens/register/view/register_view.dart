@@ -13,11 +13,13 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   late GlobalKey<FormState> formKey;
+  late TextEditingController name;
   late TextEditingController email;
   late TextEditingController password;
   @override
   void initState() {
     formKey = GlobalKey<FormState>();
+    name = TextEditingController();
     email = TextEditingController();
     password = TextEditingController();
     super.initState();
@@ -25,6 +27,7 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   void dispose() {
+    name.dispose();
     email.dispose();
     password.dispose();
     super.dispose();
@@ -40,8 +43,20 @@ class _RegisterViewState extends State<RegisterView> {
           padding: AppPadding.mediumPadding,
           child: Column(
             children: [
-              Image.asset('assets/logo.png'),
-              RegisterForm(formKey: formKey, email: email, password: password),
+              Image.asset(
+                'assets/logo.png',
+                width: 200,
+                height: 200,
+              ),
+              Text(
+                'Register',
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+              RegisterForm(formKey: formKey, name: name, email: email, password: password),
               ElevatedButton(
                 onPressed: () async {
                   if (formKey.currentState!.validate()) {
@@ -50,6 +65,12 @@ class _RegisterViewState extends State<RegisterView> {
                   }
                 },
                 child: Text('Register'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Get.offAllNamed('/login');
+                },
+                child: Text('Already have an account? Login'),
               )
             ],
           ),

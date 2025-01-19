@@ -8,7 +8,8 @@ class RegisterForm extends StatelessWidget {
       {super.key,
       required this.email,
       required this.password,
-      required this.formKey});
+      required this.formKey, required this.name});
+  final TextEditingController name;
   final TextEditingController email;
   final TextEditingController password;
   final GlobalKey<FormState> formKey;
@@ -20,7 +21,7 @@ class RegisterForm extends StatelessWidget {
         children: [
           CustomTextFormField(
             validator: AppValidators.validateNotEmpty,
-            controller: email,
+            controller: name,
             hintText: 'Name',
             label: Text('Name'),
           ),
