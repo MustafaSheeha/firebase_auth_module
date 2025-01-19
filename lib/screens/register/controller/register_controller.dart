@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_module/core/base_controller.dart';
 import 'package:firebase_auth_module/core/repository/auth_repo.dart';
+import 'package:firebase_auth_module/core/utils/handle_firebase_auth_exception.dart';
 import 'package:get/get.dart';
 
 class RegisterController extends BaseController {
@@ -11,14 +13,16 @@ class RegisterController extends BaseController {
       showLoading();
       await authRepo.register(email, password);
       hideLoading();
-      showMessage('register', 'success');
       await Future.delayed(Duration(seconds: 2));
       Get.offAllNamed('/home');
-    } on Exception catch (e) {
+    } on FirebaseAuthException catch (e) {
+      hideLoading();
+      handleFirebaseAuthException(e);
+    } catch (e) {
       hideLoading();
       showMessage(
         'register',
-        'error ${e.toString()}',
+        'error: ${e.toString()}',
       );
     }
   }
