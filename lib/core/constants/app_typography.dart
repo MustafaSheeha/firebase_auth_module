@@ -48,20 +48,20 @@ abstract class AppTypography {
     color: AppColors.error,
   );
   static const hintStyle = TextStyle(
-    fontSize: largeTextSize,
+    fontSize: mediumTextSize,
     fontFamily: cairoFontFamily,
     color: AppColors.hint,
   );
 
   static const labelStyle = TextStyle(
-    fontSize: largeTextSize,
+    fontSize: mediumTextSize,
     fontFamily: cairoFontFamily,
     color: AppColors.black,
   );
 
   static const floatingLabelStyle = TextStyle(
     fontWeight: FontWeight.bold,
-    fontSize: largeTextSize,
+    fontSize: mediumTextSize,
     fontFamily: cairoFontFamily,
     color: AppColors.black,
   );
@@ -87,7 +87,7 @@ abstract class AppTypography {
     color: AppColors.hint,
   );
   static const textFormFieldStyle = TextStyle(
-    fontSize: largeTextSize,
+    fontSize: mediumTextSize,
     fontFamily: cairoFontFamily,
   );
 
