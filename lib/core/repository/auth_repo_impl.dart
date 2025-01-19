@@ -8,7 +8,7 @@ class AuthRepoImpl implements AuthRepo {
   AuthRepoImpl(this._authService);
 
   @override
-  Future<bool> isLoggedIn() async {
+  Future<bool> isLoggedIn()async {
     try {
       final user = await _authService.authStateChanges.first;
       return user != null;

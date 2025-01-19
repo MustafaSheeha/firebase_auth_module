@@ -4,6 +4,6 @@ import 'package:get/get.dart';
 class InitialBinding extends Bindings {
   @override
   void dependencies() {
-    Get.putAsync(() async => Future.value(FirebaseAuthService()),);
+    Get.put(FirebaseAuthService());
   }
 }
