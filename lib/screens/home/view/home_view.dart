@@ -1,3 +1,5 @@
+import 'package:firebase_auth_module/core/repository/auth_repo_impl.dart';
+import 'package:firebase_auth_module/core/services/firebase_auth_service.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,7 +12,13 @@ class HomeView extends StatelessWidget {
         title: Text('Home'),
       ),
       body: Center(
-        child: Text('Home View'),
+        child: ElevatedButton(
+            onPressed: () {
+              AuthRepoImpl(
+                FirebaseAuthService(),
+              ).logout();
+            },
+            child: Text('Logout')),
       ),
     );
   }
