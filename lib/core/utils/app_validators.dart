@@ -21,4 +21,11 @@ abstract class AppValidators {
     }
     return null;
   }
+  static String? validateNotEmpty(String? value) {
+    final trimmedValue = value?.trim() ?? "";
+    if (trimmedValue.isEmpty) {
+      return 'This field cannot be empty';
+    }
+    return null;
+  }
 }
