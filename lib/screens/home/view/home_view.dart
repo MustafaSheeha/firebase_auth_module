@@ -7,16 +7,22 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Home'),
-      ),
-      body: Center(
+     
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+        colors: [Colors.blue, Colors.purple],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+          ),
+        ),
+        child: Center(
         child: ElevatedButton(
             onPressed: () async {
               await HomeController.to.logout();
             },
             child: Text('Logout')),
       ),
-    );
+    ));
   }
 }

@@ -15,7 +15,7 @@ class ShowHidePasswoedIcon extends StatelessWidget {
     return GestureDetector(
       child: Icon(
         _isObscured ? AppIcons.visibility : AppIcons.visibilityOff,
-        color: AppColors.primary,
+        color: AppColors.grey,
       ),
     );
   }
