@@ -9,20 +9,23 @@ class FirebaseAuthService extends AuthService {
   Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
 
   @override
-  Future<void> createUserWithEmailAndPassword(
+  Future<User?> createUserWithEmailAndPassword(
       String email, String password) async {
-    await _firebaseAuth.createUserWithEmailAndPassword(
+    final result = await _firebaseAuth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
+    return result.user;
   }
 
   @override
-  Future<void> signInWithEmailAndPassword(String email, String password) async {
-    await _firebaseAuth.signInWithEmailAndPassword(
+  Future<User?> signInWithEmailAndPassword(
+      String email, String password) async {
+  final result =  await _firebaseAuth.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
+    return result.user;
   }
 
   @override
