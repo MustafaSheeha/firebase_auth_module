@@ -16,12 +16,18 @@ lib/
 │   ├── widgets/          # Reusable UI components
 │   └── utils/            # Helper functions and utilities
 └── screens/              # Application screens
+    ├── splash/           # Splash screen
+    │   ├── bindings/     # GetX Bindings for Splash screen
+    │   ├── controller/   # GetX controller for Splash logic
+    │   └── view/         # UI for the Splash screen
     ├── login/            # Login screen
+    │   ├── bindings/     # GetX Bindings for login screen
     │   ├── controller/   # GetX controller for login logic
     │   └── view/         # UI for the login screen
-    ├── sign_up/          # Signup screen
-    │   ├── controller/   # GetX controller for signup logic
-    │   └── view/         # UI for the signup screen
+    ├── register/          # Register screen
+    │   ├── bindings/     # GetX Bindings for login screen
+    │   ├── controller/   # GetX controller for Register logic
+    │   └── view/         # UI for the Register screen
     └── home/             # Home screen
         ├── controller/   # GetX controller for home logic
         └── view/         # UI for the home screen
