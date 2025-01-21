@@ -38,11 +38,16 @@ class _LoginViewState extends State<LoginView> {
         child: Stack(children: [
           Container(
             decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.pink.shade100, Colors.purple.shade100],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
+             gradient: LinearGradient(
+  colors: [
+    Colors.orange.shade300,
+    Colors.deepOrange.shade200,
+    Colors.pink.shade100,
+  ],
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+),
+
             ),
             width: Get.width,
             height: Get.height,
@@ -112,15 +117,33 @@ class _LoginViewState extends State<LoginView> {
                       await LoginController.to.login(email.text, password.text);
                     }
                   },
-                  child: Text('Login'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepOrange.shade300, // Deep orange color
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
+              
                 VerticalSpacer(20),
                 Text('Don\'t have an account?'),
                 TextButton(
                   onPressed: () {
                     Get.toNamed('/register');
                   },
-                  child: Text('Register Now'),
+                  child: Text('Register Now'
+                  ,style: TextStyle(
+                    color: Colors.deepOrange.shade700
+                  ),)
                 ),
               ],
             ),
