@@ -1,4 +1,5 @@
 import 'package:firebase_auth_module/core/routes/app_routes.dart';
+import 'package:firebase_auth_module/screens/home/bindings/home_binding.dart';
 import 'package:firebase_auth_module/screens/home/view/home_view.dart';
 import 'package:firebase_auth_module/screens/login/bindings/login_binding.dart';
 import 'package:firebase_auth_module/screens/login/view/login_view.dart';
@@ -17,6 +18,7 @@ abstract class AppPages {
     ),
     GetPage(
       name: AppRoutes.home,
+      binding: HomeBinding(),
       page: () => HomeView(),
     ),
     GetPage(
