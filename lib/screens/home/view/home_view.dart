@@ -1,3 +1,4 @@
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
 import 'package:firebase_auth_module/screens/home/controller/home_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class HomeView extends StatelessWidget {
             onPressed: () async {
               await HomeController.to.logout();
             },
-            child: Text('Logout')),
+            child: Text(AppStrings.logout)),
       ),
     ));
   }

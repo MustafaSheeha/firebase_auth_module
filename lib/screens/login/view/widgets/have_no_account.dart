@@ -1,4 +1,6 @@
 
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
+import 'package:firebase_auth_module/core/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,13 +13,13 @@ class HaveNoAccount extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('Don\'t have an account?'),
+        Text(AppStrings.haveNoAccount),
         TextButton(
             onPressed: () {
-              Get.toNamed('/register');
+              Get.offNamed(AppRoutes.register);
             },
             child: Text(
-              'Register Now',
+              AppStrings.registerNow,
               style: TextStyle(color: Colors.deepOrange.shade700),
             )),
       ],

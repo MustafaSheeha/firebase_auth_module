@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_module/core/base_controller.dart';
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
 import 'package:firebase_auth_module/core/repository/auth_repo.dart';
+import 'package:firebase_auth_module/core/routes/app_routes.dart';
 import 'package:firebase_auth_module/core/utils/handle_firebase_auth_exception.dart';
 import 'package:get/get.dart';
 
@@ -15,11 +17,11 @@ class LoginController extends BaseController {
       hideLoading();
       await Future.delayed(Duration(seconds: 1));
       if (result != null) {
-        Get.offAllNamed('/home');
+        Get.offAllNamed(AppRoutes.home);
       }
       showMessage(
-        'Login successfull',
-        'Login as : ${result?.email.toString()}',
+        AppStrings.loginSuccessfull,
+        '${AppStrings.loginAs} ${result?.email.toString()}',
       );
     } on FirebaseAuthException catch (e) {
       hideLoading();
@@ -27,8 +29,8 @@ class LoginController extends BaseController {
     } catch (e) {
       hideLoading();
       showMessage(
-        'login',
-        'error: ${e.toString()}',
+        AppStrings.login,
+        '${AppStrings.errorColon} ${e.toString()}',
       );
     }
   }

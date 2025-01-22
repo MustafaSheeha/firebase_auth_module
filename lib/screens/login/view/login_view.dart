@@ -1,4 +1,5 @@
 import 'package:firebase_auth_module/core/constants/app_padding.dart';
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
 import 'package:firebase_auth_module/core/widgets/custom_elevated_button.dart';
 import 'package:firebase_auth_module/core/widgets/form_title.dart';
 import 'package:firebase_auth_module/core/widgets/vertical_spacer.dart';
@@ -47,7 +48,7 @@ class _LoginViewState extends State<LoginView> {
               child: Column(
                 children: [
                   VerticalSpacer(Get.height * 0.25),
-                  FormTitle(title: 'Login to your account'),
+                  FormTitle(title: AppStrings.loginToYourAccount),
                   VerticalSpacer(20),
                   LoginForm(formKey: formKey, email: email, password: password),
                   VerticalSpacer(20),
@@ -55,7 +56,7 @@ class _LoginViewState extends State<LoginView> {
                     formKey: formKey,
                     email: email,
                     password: password,
-                    buttonText: 'Login',
+                    buttonText: AppStrings.login,
                     backgroundColor: Colors.deepOrange.shade300,
                     onPressed: LoginController.to.login,
                   ),

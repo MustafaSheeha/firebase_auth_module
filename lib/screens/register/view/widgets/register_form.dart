@@ -1,3 +1,4 @@
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
 import 'package:firebase_auth_module/core/utils/app_validators.dart';
 import 'package:firebase_auth_module/core/widgets/custom_text_form_field.dart';
 import 'package:firebase_auth_module/core/widgets/vertical_spacer.dart';
@@ -31,19 +32,19 @@ class RegisterForm extends StatelessWidget {
             children: [
               CustomTextFormField(
                 controller: name,
-                label: Text("Name"),
+                label: Text(AppStrings.name),
                 validator: AppValidators.validateNotEmpty,
               ),
               VerticalSpacer(15),
               CustomTextFormField(
                 controller: email,
-                label: Text("Email"),
+                label: Text(AppStrings.email),
                 validator: AppValidators.validateEmail,
               ),
              VerticalSpacer(15),
               CustomTextFormField(
                 controller: password,
-                label: Text("Password"),
+                label: Text(AppStrings.password),
                 isPassword: true,
                 validator: AppValidators.validatePassword,
               ),

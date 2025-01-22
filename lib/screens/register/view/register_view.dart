@@ -1,3 +1,4 @@
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
 import 'package:firebase_auth_module/core/widgets/custom_elevated_button.dart';
 import 'package:firebase_auth_module/core/widgets/form_title.dart';
 import 'package:firebase_auth_module/core/widgets/vertical_spacer.dart';
@@ -51,7 +52,7 @@ class _RegisterViewState extends State<RegisterView> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   VerticalSpacer(Get.height * 0.16),
-                  FormTitle(title: 'Create Your Account'),
+                  FormTitle(title: AppStrings.createYourAccount),
                   VerticalSpacer(15),
                   RegisterForm(
                     formKey: formKey,
@@ -61,7 +62,7 @@ class _RegisterViewState extends State<RegisterView> {
                   ),
                   VerticalSpacer(15),
                   CustomElevatedButton(
-                    buttonText: 'Register',
+                    buttonText: AppStrings.register,
                     formKey: formKey,
                     email: email,
                     password: password,

@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_module/core/base_controller.dart';
+import 'package:firebase_auth_module/core/constants/app_strings.dart';
 import 'package:firebase_auth_module/core/repository/auth_repo_impl.dart';
+import 'package:firebase_auth_module/core/routes/app_routes.dart';
 import 'package:firebase_auth_module/core/utils/handle_firebase_auth_exception.dart';
 import 'package:get/get.dart';
 
@@ -17,11 +19,11 @@ class HomeController extends BaseController {
       await Future.delayed(const Duration(seconds: 1));
       hideLoading();
       await authRepoImpl.logout();
-      Get.offAllNamed('/login');
+      Get.offAllNamed(AppRoutes.login);
     } on FirebaseAuthException catch (e) {
       handleFirebaseAuthException(e);
     } catch (e) {
-      showMessage('Logout', 'Error: ${e.toString()}');
+      showMessage(AppStrings.logout, '${AppStrings.error}: ${e.toString()}');
     } finally {
       hideLoading();
     }
