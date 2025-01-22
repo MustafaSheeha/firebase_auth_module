@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_module/core/base_controller.dart';
 import 'package:firebase_auth_module/core/repository/auth_repo.dart';
@@ -14,9 +12,8 @@ class LoginController extends BaseController {
     try {
       showLoading();
       final User? result = await authRepo.login(email, password);
-      log(result.toString());
       hideLoading();
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(Duration(seconds: 1));
       if (result != null) {
         Get.offAllNamed('/home');
       }
