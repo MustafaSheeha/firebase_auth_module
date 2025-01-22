@@ -54,6 +54,11 @@ This project showcases my ability to:
 
 ## Screenshots
 
+![splash](https://github.com/user-attachments/assets/f40dbd51-1728-4071-9405-1027ac25363e)
+![register](https://github.com/user-attachments/assets/396fdd37-7458-4857-96e5-65f66f49ef76)
+![login](https://github.com/user-attachments/assets/694e82c8-d48d-47ff-8cf3-f2e1afab6ada)
+![home](https://github.com/user-attachments/assets/afccbc17-7011-4da7-be8e-f25bb6cbf931)
+
 ## Future Improvements
 - Add support for social login (Google, Facebook).
 - Implement password reset functionality.
