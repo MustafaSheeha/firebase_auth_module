@@ -16,13 +16,14 @@ class LoginController extends BaseController {
       final User? result = await authRepo.login(email, password);
       log(result.toString());
       hideLoading();
+      await Future.delayed(Duration(seconds: 2));
+      if (result != null) {
+        Get.offAllNamed('/home');
+      }
       showMessage(
         'Login successfull',
         'Login as : ${result?.email.toString()}',
       );
-      if (result != null) {
-        Get.offAllNamed('/home');
-      }
     } on FirebaseAuthException catch (e) {
       hideLoading();
       handleFirebaseAuthException(e);

@@ -1,6 +1,10 @@
 import 'package:firebase_auth_module/core/constants/app_padding.dart';
+import 'package:firebase_auth_module/core/widgets/custom_elevated_button.dart';
+import 'package:firebase_auth_module/core/widgets/form_title.dart';
 import 'package:firebase_auth_module/core/widgets/vertical_spacer.dart';
 import 'package:firebase_auth_module/screens/login/controller/login_controller.dart';
+import 'package:firebase_auth_module/screens/login/view/widgets/have_no_account.dart';
+import 'package:firebase_auth_module/screens/login/view/widgets/login_background.dart';
 import 'package:firebase_auth_module/screens/login/view/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -37,115 +41,26 @@ class _LoginViewState extends State<LoginView> {
       body: SingleChildScrollView(
         child: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Colors.orange.shade300,
-                    Colors.deepOrange.shade200,
-                    Colors.pink.shade100,
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
-              width: Get.width,
-              height: Get.height,
-            ),
-            Positioned(
-              top: -50,
-              left: -50,
-              child: CircleAvatar(
-                radius: 100,
-                backgroundColor: Colors.white.withOpacity(0.2),
-              ),
-            ),
-            Positioned(
-              bottom: -70,
-              right: -70,
-              child: CircleAvatar(
-                radius: 120,
-                backgroundColor: Colors.white.withOpacity(0.2),
-              ),
-            ),
-            Positioned(
-              top: 200,
-              right: -50,
-              child: Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.blue.withOpacity(0.3),
-                ),
-              ),
-            ),
-            Positioned(
-              bottom: 150,
-              left: -50,
-              child: Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.yellow.withOpacity(0.3),
-                ),
-              ),
-            ),
+            LoginBackground(),
             Padding(
               padding: AppPadding.mediumPadding,
               child: Column(
                 children: [
-                  Image.asset(
-                    'assets/logo.png',
-                    width: 200,
-                    height: 200,
-                  ),
-                  Text(
-                    'Login',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  VerticalSpacer(Get.height * 0.25),
+                  FormTitle(title: 'Login to your account'),
                   VerticalSpacer(20),
                   LoginForm(formKey: formKey, email: email, password: password),
                   VerticalSpacer(20),
-                  ElevatedButton(
-                    onPressed: () async {
-                      if (formKey.currentState!.validate()) {
-                        await LoginController.to
-                            .login(email.text, password.text);
-                      }
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.deepOrange.shade300, // Deep orange color
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: Text(
-                      "Login",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
+                  CustomElevatedButton(
+                    formKey: formKey,
+                    email: email,
+                    password: password,
+                    buttonText: 'Login',
+                    backgroundColor: Colors.deepOrange.shade300,
+                    onPressed: LoginController.to.login,
                   ),
                   VerticalSpacer(20),
-                  Text('Don\'t have an account?'),
-                  TextButton(
-                      onPressed: () {
-                        Get.toNamed('/register');
-                      },
-                      child: Text(
-                        'Register Now',
-                        style: TextStyle(color: Colors.deepOrange.shade700),
-                      )),
+                  HaveNoAccount(),
                 ],
               ),
             ),
