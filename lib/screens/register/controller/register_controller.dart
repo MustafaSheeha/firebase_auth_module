@@ -11,10 +11,16 @@ class RegisterController extends BaseController {
   Future<void> register(String email, String password) async {
     try {
       showLoading();
-      await authRepo.register(email, password);
+      final result = await authRepo.register(email, password);
       hideLoading();
       await Future.delayed(Duration(seconds: 2));
-      Get.offAllNamed('/home');
+      if (result != null) {
+        Get.offAllNamed('/home');
+      }
+      showMessage(
+        'Registeration successfull',
+        'Login as : ${result?.email.toString()}',
+      );
     } on FirebaseAuthException catch (e) {
       hideLoading();
       handleFirebaseAuthException(e);
